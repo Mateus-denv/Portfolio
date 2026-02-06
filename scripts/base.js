@@ -14,7 +14,7 @@ function drawMatrix() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  ctx.fillStyle = '#00ffff';
+  ctx.fillStyle = 'rgb(255, 255, 255)';
   ctx.font = fontSize + 'px monospace';
 
   for (let i = 0; i < drops.length; i++) {
@@ -64,3 +64,40 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = document.querySelector('.hero-background').offsetHeight;
 });
+
+// Efeito de digitação no nome
+const typingName = document.getElementById('typing-name');
+const nameText = 'Mateus Santos ;)';
+let nameIndex = 0;
+
+function typeWriterName() {
+  if (nameIndex < nameText.length) {
+    typingName.textContent += nameText.charAt(nameIndex);
+    nameIndex++;
+    setTimeout(typeWriterName, 100);
+  } else {
+    // Remove o cursor do nome quando terminar
+    typingName.parentElement.querySelector('.name-highlight').style.setProperty('--show-cursor', 'none');
+    // Inicia a digitação do cargo após 500ms
+    setTimeout(typeWriterRole, 500);
+  }
+}
+
+// Efeito de digitação no cargo
+const typingRole = document.getElementById('typing-role');
+const roleText = 'Desenvolvedor Júnior Back-End | C# | .NET | SQL Server';
+let roleIndex = 0;
+
+function typeWriterRole() {
+  if (roleIndex < roleText.length) {
+    typingRole.textContent += roleText.charAt(roleIndex);
+    roleIndex++;
+    setTimeout(typeWriterRole, 80);
+  }
+}
+
+// Inicia a digitação do nome imediatamente
+typeWriterName();
+
+// Inicia a digitação do hero após tudo terminar
+setTimeout(typeWriter, (nameText.length * 100) + 500 + (roleText.length * 80) + 500);
