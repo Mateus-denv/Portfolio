@@ -70,8 +70,9 @@ window.projectsData = {
         description: 'Sistema web de locação de motocicletas desenvolvido em ASP.NET Core MVC, com controle de reservas, gestão de frota, regras de negócio e painel administrativo, focado em mobilidade urbana e turismo.',
         features: [
             'Cadastro e login na plataforma',
-            'Agendamento de horário',
-            'Gerenciar e iniciar atendimentos',
+            'Gerenciamento de reservas',
+            'Gestão de frota',
+            'Painel administrativo',
         ],
         inDevelopment: true
     }
